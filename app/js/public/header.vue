@@ -8,11 +8,11 @@
 </template>
 
 <script>
-    import btn from '../core/btn.vue'
+    import Btn from '../core/btn.vue'
 
     export default {
         components: {
-            btn
+            Btn
         }
     }
 </script>

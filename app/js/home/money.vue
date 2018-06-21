@@ -57,9 +57,9 @@
         @include panel;
         .content {
             @include flex(row);
-            justify-content: space-around; /*todo:???*/
+            justify-content: space-around;
             box-sizing: border-box;
-            &:after{
+            &:after {
                 content: ' ';
                 display: block;
                 width: 100%;
@@ -94,7 +94,7 @@
                     font-size: 30px;
                     line-height: 42px;
                     color: #333;
-                    span{
+                    span {
                         font-size: 22px;
                         color: #ff5155;
                         border: 1px solid #ff5155;
@@ -103,8 +103,8 @@
                         margin-left: 2px;
                     }
                 }
-                dd{
-                    &:nth-child(2){
+                dd {
+                    &:nth-child(2) {
                         font-weight: 700;
                         font-size: 44px;
                         height: 58px;
@@ -114,7 +114,7 @@
                         text-overflow: ellipsis;
                         overflow: hidden;
                     }
-                    &:nth-child(3){
+                    &:nth-child(3) {
                         font-size: 24px;
                         height: 34px;
                         line-height: 34px;

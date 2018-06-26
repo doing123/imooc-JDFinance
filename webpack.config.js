@@ -23,11 +23,14 @@ module.exports = env => {
                 }
             }),
             new ExtractTextPlugin("style.css", {ignoreOrder: true}),
-            new UglifyJsPlugin()
+            new UglifyJsPlugin({
+                sourceMap: true
+            })
         )
     }
     return {
         entry: ['./app/js/viewport.js', './app/js/main.js'],
+        devtool: 'source-map',
         devServer: {
             contentBase: './dist',
             hot: true,

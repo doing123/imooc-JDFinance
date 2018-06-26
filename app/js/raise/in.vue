@@ -1,25 +1,22 @@
 <template>
     <Panel title="In货推荐" :class="$style.panel">
         <section :class="$style.content">
-            <div :class="$style.item">
-                <img src="//img12.360buyimg.com/jrpmobile/jfs/t24085/180/188421222/17231/f94bd16f/5b285744Nba957c1d.png?width=690&height=154"
+            <div :class="$style.item" v-for="item in items" :key="item.catory">
+                <img :src="item.catory"
                      alt="">
                 <section :class="$style.list">
-                    <div :class="$style.product">
-                        <img src="//img30.360buyimg.com/cf/jfs/t22162/323/78348189/20824/dac83f3b/5afa4f72Ne6dc8c55.jpg!q70.dpg"
+                    <div :class="$style.product" v-for="product in item.list" :key="product.img">
+                        <img :src="product.img"
                              alt="">
-                        <p :class="$style.title">奥可宝 一键智能辅食机</p>
-                        <p :class="$style.price"><em>29.00</em>起</p>
+                        <p :class="$style.title"></p>
+                        <p :class="$style.price"><em>{{product.price}}</em>起</p>
                         <article>
                             <div :class="$style.wrapper">
-                                <div :class="$style.inner"></div>
+                                <div :class="$style.inner" :style="{width: product.progress + '%'}"></div>
                             </div>
-                            <p>172%</p>
+                            <p>{{product.progress}}%</p>
                         </article>
-                        <label for="">精选</label>
-                    </div>
-                    <div :class="$style.product">
-
+                        <label v-if="product.featured">{{product.featured}}</label>
                     </div>
                 </section>
             </div>
@@ -33,6 +30,64 @@
     export default {
         components: {
             Panel
+        },
+        data(){
+            return {
+                items: [
+                    {
+                        catory: '//img12.360buyimg.com/jrpmobile/jfs/t24085/180/188421222/17231/f94bd16f/5b285744Nba957c1d.png?width=690&height=154',
+                        list: [
+                            {
+                                img: '//img30.360buyimg.com/cf/jfs/t22162/323/78348189/20824/dac83f3b/5afa4f72Ne6dc8c55.jpg!q70.dpg',
+                                title:'奥可宝 一键智能辅食机',
+                                price: '29.00',
+                                progress: 172,
+                                featured: '精选'
+                            },
+                            {
+                                img: '//img30.360buyimg.com/cf/jfs/t22162/323/78348189/20824/dac83f3b/5afa4f72Ne6dc8c55.jpg!q70.dpg',
+                                title:'奥可宝 一键智能辅食机',
+                                price: '29.00',
+                                progress: 172
+                            }
+                        ]
+                    },
+                    {
+                        catory: '//img12.360buyimg.com/jrpmobile/jfs/t24085/180/188421222/17231/f94bd16f/5b285744Nba957c1d.png?width=690&height=154',
+                        list: [
+                            {
+                                img: '//img30.360buyimg.com/cf/jfs/t22162/323/78348189/20824/dac83f3b/5afa4f72Ne6dc8c55.jpg!q70.dpg',
+                                title:'奥可宝 一键智能辅食机',
+                                price: '29.00',
+                                progress: 172
+                            },
+                            {
+                                img: '//img30.360buyimg.com/cf/jfs/t22162/323/78348189/20824/dac83f3b/5afa4f72Ne6dc8c55.jpg!q70.dpg',
+                                title:'奥可宝 一键智能辅食机',
+                                price: '29.00',
+                                progress: 172
+                            }
+                        ]
+                    },
+                    {
+                        catory: '//img12.360buyimg.com/jrpmobile/jfs/t24085/180/188421222/17231/f94bd16f/5b285744Nba957c1d.png?width=690&height=154',
+                        list: [
+                            {
+                                img: '//img30.360buyimg.com/cf/jfs/t22162/323/78348189/20824/dac83f3b/5afa4f72Ne6dc8c55.jpg!q70.dpg',
+                                title:'奥可宝 一键智能辅食机',
+                                price: '29.00',
+                                progress: 172
+                            },
+                            {
+                                img: '//img30.360buyimg.com/cf/jfs/t22162/323/78348189/20824/dac83f3b/5afa4f72Ne6dc8c55.jpg!q70.dpg',
+                                title:'奥可宝 一键智能辅食机',
+                                price: '29.00',
+                                progress: 172
+                            }
+                        ]
+                    }
+                ]
+            }
         }
     }
 </script>
@@ -45,6 +100,7 @@
         .content {
             @include flex;
             .item {
+                margin-bottom: 40px;
                 > img {
                     display: block;
                     width: 100%;
@@ -102,6 +158,7 @@
                                 border-radius: 22px;
                                 .inner {
                                     width: 40%;
+                                    max-width: 100%;
                                     height: 10px;
                                     background-image: linear-gradient(270deg, #f55 1%, #ff9c31 100%);
                                     border-radius: 22px;

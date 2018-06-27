@@ -4,6 +4,7 @@
         <Slider/>
         <Daily/>
         <In/>
+        <More/>
         <Footor/>
         <Navbar/>
     </div>
@@ -16,6 +17,7 @@
     import Slider from './rslider.vue'
     import Daily from './daily.vue'
     import In from './in.vue'
+    import More from './more.vue'
 
     export default {
         components: {
@@ -23,6 +25,7 @@
             Slider,
             Daily,
             In,
+            More,
             Footor,
             Navbar
         }

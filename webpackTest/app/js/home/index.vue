@@ -1,5 +1,5 @@
 <template>
-    <div :class="$style.home">
+    <div :class="$style.home" v-else>
         <h1>home</h1>
         <div :class="$style.title">
             title

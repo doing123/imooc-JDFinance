@@ -24,7 +24,7 @@ module.exports = env => { // 开发环境配置
                     NODE_ENV: "production"
                 }
             }),
-            new ExtractTextPlugin("style.css"), // 提取 CSS 文件
+            new ExtractTextPlugin("style.css", {ignoreOrder: true}), // 提取 CSS 文件
             new UglifyJsPlugin({
                 sourceMap: true
             })
@@ -35,6 +35,7 @@ module.exports = env => { // 开发环境配置
         entry: {
             app: './app/js/main.js'
         },
+        devtool: 'source-map',
         devServer: {
             contentBase: path.join(__dirname, "dist"), // 静态文件在哪输出
             compress: true, // gzip压缩
@@ -67,11 +68,11 @@ module.exports = env => { // 开发环境配置
                         loaders: env.production ? { // px 转 rem
 
                             scss: ExtractTextPlugin.extract({
-                                use: 'css-loader!px2Rem-loader?remUnit=75&remPrecision=8!sass-loader',
+                                use: 'css-loader?minimize!px2Rem-loader?remUnit=75&remPrecision=8!sass-loader',
                                 fallback: 'vue-style-loader' // <- 这是vue-loader的依赖，所以如果使用npm3，则不需要显式安装
                             }), // <style lang="scss">
                             css: ExtractTextPlugin.extract({
-                                use: 'css-loader!px2Rem-loader?remUnit=75&remPrecision=8',
+                                use: 'css-loader?minimize!px2Rem-loader?remUnit=75&remPrecision=8',
                                 fallback: 'vue-style-loader' // <- 这是vue-loader的依赖，所以如果使用npm3，则不需要显式安装
                             })
                         } : {

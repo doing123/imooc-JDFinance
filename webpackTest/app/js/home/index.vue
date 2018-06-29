@@ -8,19 +8,20 @@
 </template>
 
 <script>
-    export default {
-
-    }
+    export default {}
 </script>
 
 <style lang="scss" module>
     @import "../../css/reset.scss";
-    .home{
+
+    .home {
         color: #f04752;
         font-size: 55px;
-        .title{
-            color: aqua;
-            font-size: 35px;
-        }
+
+    .title {
+        color: aqua;
+        font-size: 35px;
+    }
+
     }
 </style>

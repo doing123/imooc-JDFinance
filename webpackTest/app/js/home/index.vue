@@ -1,18 +1,27 @@
 <template>
-    <div class="home">
+    <div :class="$style.home" v-else>
         <h1>home</h1>
+        <div :class="$style.title">
+            title
+        </div>
     </div>
 </template>
 
 <script>
-    export default {
-
-    }
+    export default {}
 </script>
 
-<style lang="css">
-    .home{
+<style lang="scss" module>
+    @import "../../css/reset.scss";
+
+    .home {
         color: #f04752;
         font-size: 55px;
+
+    .title {
+        color: aqua;
+        font-size: 35px;
+    }
+
     }
 </style>
